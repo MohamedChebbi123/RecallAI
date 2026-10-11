@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+
 import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
@@ -59,6 +60,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: UpdatWidget.routeName,
           path: UpdatWidget.routePath,
           builder: (context, params) => UpdatWidget(),
+        ),
+        FFRoute(
+          name: GeneratequizWidget.routeName,
+          path: GeneratequizWidget.routePath,
+          builder: (context, params) => GeneratequizWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

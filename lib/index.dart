@@ -5,3 +5,5 @@ export '/pages/auth/registerpage/registerpage_widget.dart'
 export '/pages/auth/updateprofile/updateprofile_widget.dart'
     show UpdateprofileWidget;
 export '/pages/updat/updat_widget.dart' show UpdatWidget;
+export '/pages/quiz/generatequiz/generatequiz_widget.dart'
+    show GeneratequizWidget;

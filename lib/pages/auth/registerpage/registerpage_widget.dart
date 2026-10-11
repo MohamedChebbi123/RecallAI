@@ -1,9 +1,11 @@
 import '/flutter_flow/ff_builtin_enums.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'registerpage_model.dart';
 export 'registerpage_model.dart';
@@ -18,10 +20,13 @@ class RegisterpageWidget extends StatefulWidget {
   State<RegisterpageWidget> createState() => _RegisterpageWidgetState();
 }
 
-class _RegisterpageWidgetState extends State<RegisterpageWidget> {
+class _RegisterpageWidgetState extends State<RegisterpageWidget>
+    with TickerProviderStateMixin {
   late RegisterpageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  var hasButtonTriggered = false;
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -39,6 +44,303 @@ class _RegisterpageWidgetState extends State<RegisterpageWidget> {
 
     _model.confirmPasswordFieldTextController ??= TextEditingController();
     _model.confirmPasswordFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 12.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 45.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 45.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 12.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 90.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 90.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 12.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 135.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 135.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 12.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShakeEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            hz: 5.0,
+            offset: Offset(4.0, 0.0),
+            rotation: 0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 180.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 180.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 12.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 200.0.ms,
+            begin: Offset(0.0, -6.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 225.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 225.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 12.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 200.0.ms,
+            begin: Offset(0.0, -6.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 270.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 270.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 12.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 200.0.ms,
+            begin: Offset(0.0, -6.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 315.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 315.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 12.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation7': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 200.0.ms,
+            begin: Offset(0.0, -6.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeOut,
+            delay: 360.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 360.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 12.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnActionTriggerAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: false,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 100.0.ms,
+            begin: Offset(1.0, 1.0),
+            end: Offset(0.97, 0.97),
+          ),
+          ScaleEffect(
+            curve: Curves.easeOut,
+            delay: 100.0.ms,
+            duration: 100.0.ms,
+            begin: Offset(0.97, 0.97),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+    });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
   }
 
   @override
@@ -97,7 +399,8 @@ class _RegisterpageWidgetState extends State<RegisterpageWidget> {
                               },
                             ),
                           ],
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['rowOnPageLoadAnimation']!),
                         Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment:
@@ -119,7 +422,8 @@ class _RegisterpageWidgetState extends State<RegisterpageWidget> {
                                 color: Colors.white,
                                 size: 26.0,
                               ),
-                            ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation1']!),
                             Container(
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -147,7 +451,8 @@ class _RegisterpageWidgetState extends State<RegisterpageWidget> {
                                       ),
                                 ),
                               ),
-                            ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation2']!),
                             Text(
                               'Sign up with your details to get started',
                               textAlign: TextAlign.start,
@@ -171,7 +476,8 @@ class _RegisterpageWidgetState extends State<RegisterpageWidget> {
                                         .bodyLarge
                                         .fontStyle,
                                   ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['textOnPageLoadAnimation']!),
                           ],
                         ),
                         if (_model.showErrorBanner ?? true)
@@ -233,7 +539,8 @@ class _RegisterpageWidgetState extends State<RegisterpageWidget> {
                                 ].divide(SizedBox(width: 8.0)),
                               ),
                             ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation3']!),
                         Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment:
@@ -352,9 +659,11 @@ class _RegisterpageWidgetState extends State<RegisterpageWidget> {
                                         ),
                                   ),
                                 ),
-                              ),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation4']!),
                           ],
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['columnOnPageLoadAnimation1']!),
                         Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment:
@@ -475,9 +784,11 @@ class _RegisterpageWidgetState extends State<RegisterpageWidget> {
                                         ),
                                   ),
                                 ),
-                              ),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation5']!),
                           ],
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['columnOnPageLoadAnimation2']!),
                         Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment:
@@ -644,9 +955,11 @@ class _RegisterpageWidgetState extends State<RegisterpageWidget> {
                                         ),
                                   ),
                                 ),
-                              ),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation6']!),
                           ],
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['columnOnPageLoadAnimation3']!),
                         Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment:
@@ -782,9 +1095,11 @@ class _RegisterpageWidgetState extends State<RegisterpageWidget> {
                                         ),
                                   ),
                                 ),
-                              ),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation7']!),
                           ],
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['columnOnPageLoadAnimation4']!),
                         FFButtonWidget(
                           onPressed: () {
                             print('SignUpButton pressed ...');
@@ -810,7 +1125,13 @@ class _RegisterpageWidgetState extends State<RegisterpageWidget> {
                             elevation: 0.0,
                             borderRadius: BorderRadius.circular(12.0),
                           ),
-                        ),
+                        )
+                            .animateOnPageLoad(
+                                animationsMap['buttonOnPageLoadAnimation']!)
+                            .animateOnActionTrigger(
+                                animationsMap[
+                                    'buttonOnActionTriggerAnimation']!,
+                                hasBeenTriggered: hasButtonTriggered),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 8.0),

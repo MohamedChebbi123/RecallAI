@@ -3,9 +3,58 @@ import 'updateprofile_widget.dart' show UpdateprofileWidget;
 import 'package:flutter/material.dart';
 
 class UpdateprofileModel extends FlutterFlowModel<UpdateprofileWidget> {
-  @override
-  void initState(BuildContext context) {}
+  ///  Local state fields for this page.
+
+  bool? showErrorBanner = false;
+
+  bool? showUsernameError = false;
+
+  bool? showEmailError = false;
+
+  bool? showPasswordError = false;
+
+  bool? showConfirmPasswordError = false;
+
+  ///  State fields for stateful widgets in this page.
+
+  // State field(s) for UsernameField widget.
+  FocusNode? usernameFieldFocusNode;
+  TextEditingController? usernameFieldTextController;
+  String? Function(BuildContext, String?)? usernameFieldTextControllerValidator;
+  // State field(s) for EmailField widget.
+  FocusNode? emailFieldFocusNode;
+  TextEditingController? emailFieldTextController;
+  String? Function(BuildContext, String?)? emailFieldTextControllerValidator;
+  // State field(s) for PasswordField widget.
+  FocusNode? passwordFieldFocusNode;
+  TextEditingController? passwordFieldTextController;
+  late bool passwordFieldVisibility;
+  String? Function(BuildContext, String?)? passwordFieldTextControllerValidator;
+  // State field(s) for ConfirmPasswordField widget.
+  FocusNode? confirmPasswordFieldFocusNode;
+  TextEditingController? confirmPasswordFieldTextController;
+  late bool confirmPasswordFieldVisibility;
+  String? Function(BuildContext, String?)?
+      confirmPasswordFieldTextControllerValidator;
 
   @override
-  void dispose() {}
+  void initState(BuildContext context) {
+    passwordFieldVisibility = false;
+    confirmPasswordFieldVisibility = false;
+  }
+
+  @override
+  void dispose() {
+    usernameFieldFocusNode?.dispose();
+    usernameFieldTextController?.dispose();
+
+    emailFieldFocusNode?.dispose();
+    emailFieldTextController?.dispose();
+
+    passwordFieldFocusNode?.dispose();
+    passwordFieldTextController?.dispose();
+
+    confirmPasswordFieldFocusNode?.dispose();
+    confirmPasswordFieldTextController?.dispose();
+  }
 }

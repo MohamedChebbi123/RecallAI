@@ -3,6 +3,14 @@ import 'loginpage_widget.dart' show LoginpageWidget;
 import 'package:flutter/material.dart';
 
 class LoginpageModel extends FlutterFlowModel<LoginpageWidget> {
+  ///  Local state fields for this page.
+
+  bool? showErrorBanner = false;
+
+  bool? showEmailError = false;
+
+  bool? showPasswordError = false;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for EmailField widget.
