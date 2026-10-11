@@ -33,12 +33,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => LoginpageWidget(),
+      errorBuilder: (context, state) => RegisterpageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => LoginpageWidget(),
+          builder: (context, _) => RegisterpageWidget(),
         ),
         FFRoute(
           name: LoginpageWidget.routeName,

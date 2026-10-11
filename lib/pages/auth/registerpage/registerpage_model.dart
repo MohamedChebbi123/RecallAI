@@ -3,6 +3,18 @@ import 'registerpage_widget.dart' show RegisterpageWidget;
 import 'package:flutter/material.dart';
 
 class RegisterpageModel extends FlutterFlowModel<RegisterpageWidget> {
+  ///  Local state fields for this page.
+
+  bool? showErrorBanner = false;
+
+  bool? showUsernameError = false;
+
+  bool? showEmailError = false;
+
+  bool? showPasswordError = false;
+
+  bool? showConfirmPasswordError = false;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for UsernameField widget.
